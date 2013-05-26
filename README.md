@@ -8,4 +8,6 @@ Carrito creado con el Framework Django 1.5
 	<hr>
 	<li>Creación de Apps (ventas) y Modelos (cliente y producto) registrador en el admin de django.</li>
 	<li>Creación de App (home) Urls y Vistas directorio (templates)</li>
+	<hr>
+	<li>Creación de vistas dinamica con datos mostrados desde la base de datos mysql en archivo (productos.html)</li>
 </ul>
