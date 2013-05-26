@@ -10,4 +10,6 @@ Carrito creado con el Framework Django 1.5
 	<li>Creación de App (home) Urls y Vistas directorio (templates)</li>
 	<hr>
 	<li>Creación de vistas dinamica con datos mostrados desde la base de datos mysql en archivo (productos.html)</li>
+	<hr>
+	<li>Formulario de contacto y CSRF</li>
 </ul>

@@ -3,6 +3,8 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 #impostamos la libreria models y traemos la clase productos para crear nuestra vista dinamica desde la db
 from carrito.apps.ventas.models import producto
+#importar el formulario creado
+from carrito.apps.home.forms import ContactForm
 
 #creamos nuestra vistas
 def index_view(request):
@@ -17,3 +19,8 @@ def productos_view(request):
 	prod = producto.objects.filter(status=True)
 	ctx = {'productos':prod}
 	return render_to_response('home/productos.html',ctx,context_instance=RequestContext(request))
+
+def contacto_view(request):
+	formulario = ContactForm()
+	ctx = {'form':formulario}
+	return render_to_response('home/contacto.html',ctx,context_instance=RequestContext(request))
