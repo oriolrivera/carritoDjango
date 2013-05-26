@@ -7,5 +7,5 @@ Carrito creado con el Framework Django 1.5
 	<li>Configuración de urls.py de admin</li>
 	<hr>
 	<li>Creación de Apps (ventas) y Modelos (cliente y producto) registrador en el admin de django.</li>
-
+	<li>Creación de App (home) Urls y Vistas directorio (templates)</li>
 </ul>
