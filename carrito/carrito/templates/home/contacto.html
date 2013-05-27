@@ -7,11 +7,19 @@
 <body>
 	<h1>Contactenos</h1>
 
-	<form action="." method="post">
-		{% csrf_token %}
-       {{ form.as_p }}
-       <input type="submit">
-	</form>
+	{% if info_enviado %}
+	     Correo enviado :)
+	     <br>
+	     <p><b>Email:</b>{{email}}</p>
+	     <p><b>Titulo:</b> {{titulo}} </p>
+	     <p><b>Mensaje:</b> {{texto}} </p>
 
+	{% else %}
+		<form action="." method="post">
+			{% csrf_token %}
+	       {{ form.as_p }}
+	       <input type="submit">
+		</form>
+    {% endif %}
 </body>
 </html>
