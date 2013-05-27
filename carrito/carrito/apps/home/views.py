@@ -5,6 +5,8 @@ from django.template import RequestContext
 from carrito.apps.ventas.models import producto
 #importar el formulario creado
 from carrito.apps.home.forms import ContactForm
+#libreria para enviar correo con estilo html
+from django.core.mail import EmailMultiAlternatives
 
 #creamos nuestra vistas
 def index_view(request):
@@ -32,6 +34,14 @@ def contacto_view(request):
 			email = formulario.cleaned_data['Email']
 			titulo = formulario.cleaned_data['Titulo']
 			texto = formulario.cleaned_data['Texto']
+
+			#configuracion de enviar correo
+			to_admin = 'tucorrreo@gmail.com'
+			html_content = "Imformacion recibida de %s<br><br><br>***Mensaje***<br><br>%s"%(email,texto)
+			msg = EmailMultiAlternatives('Correo de contacto', html_content,'from@server.com',[to_admin])
+			msg.attach_alternative(html_content,'text/html') #define el content html
+			msg.send() #enviar
+
 	else:
 		formulario = ContactForm()
 	ctx = {'form':formulario, 'email':email,'titulo':titulo, 'texto':texto, 'info_enviado':info_enviado}
