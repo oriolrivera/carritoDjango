@@ -21,4 +21,7 @@ Carrito creado con el Framework Django 1.5
 	<li>Insertandos datos desde el formulario en mysql</li>
 	<hr>
 	<li>Implementación de herencia de plantillas</li>
+	<hr>
+	<li>Levantando servidor de medios</li>
+
 </ul>
