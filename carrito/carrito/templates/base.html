@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title> {% block title %} Titulo base {% endblock %} </title>
+</head>
+	<body>
+		<header>
+			<h1>Projecto carrito de compras</h1>
+
+			<nav>
+				<li><a href="{% url "vista_principal" %}">Home</a></li>
+				<li><a href="{% url "vista_productos" %}">Productos</a></li>
+				<li><a href="{% url "vista_about" %}">Nosotros</a></li>
+				<li><a href="{% url "vista_contacto" %}">Contacto</a></li>
+			</nav>
+		</header>
+		<section>
+			{% block content %}
+			{% endblock %}
+		</section>
+
+	</body>
+</html>

@@ -1,10 +1,10 @@
-<!doctype html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<title>..::Contactenos::..</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+
+ {% block title %} ..::Contactenos::..{% endblock %}
+
+
+{% block content %}
 	<h1>Contactenos</h1>
 
 	{% if info_enviado %}
@@ -21,5 +21,4 @@
 	       <input type="submit">
 		</form>
     {% endif %}
-</body>
-</html>
+{% endblock %}

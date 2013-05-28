@@ -1,21 +1,21 @@
-<!doctype html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<title>Catalogos de productos</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+
+{% block title %} Catalogos de productos {% endblock %}
+
+{% block content %}
 	<h1>Catalogos de productos</h1>
 
-{% if productos  %}
-   {% for p in productos %}
-       <p> {{ p.nombre }} </p>
-       <small> {{ p.descripcion }} </small>
-   {% endfor %}
+	<a href="{% url "vista_agregar_producto" %}">Agregar productos</a>
 
-{% else %}
-    <h2>No existen productos :( </h2>
-{% endif %}
+	{% if productos  %}
+	   {% for p in productos %}
+	       <p> {{ p.nombre }} </p>
+	       <small> {{ p.descripcion }} </small>
+	   {% endfor %}
 
-</body>
-</html>
+	{% else %}
+	    <h2>No existen productos :( </h2>
+	{% endif %}
+
+{% endblock %}

@@ -1,10 +1,8 @@
-<!doctype html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<title>Crear productos</title>
-</head>
-	<body>
+{% extends 'base.html' %}
+
+{% block title %}Crear productos{% endblock %}
+
+{% block content %}
 			<form action="." method="POST">
 			{% csrf_token %}
 			{{ form.as_p }}
@@ -14,5 +12,4 @@
 		<br>
 			{{ informacion }}
 
-	</body>
-</html>
+{% endblock %}

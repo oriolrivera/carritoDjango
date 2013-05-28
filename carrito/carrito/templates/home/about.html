@@ -1,12 +1,9 @@
-<!doctype html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<title>..::Acerda de mi::..</title>
-</head>
-<body>
-	<h1>Acerda de mi</h1>
+{% extends 'base.html' %}
+ {% block title %} ..::Acerda de nosotros::..{% endblock %}
 
-	<p> {{ msg }} </p>
-</body>
-</html>
+{% block content %}
+			<h1>Acerda de nosotros</h1>
+
+			<p> {{ msg }} </p>
+
+{% endblock %}

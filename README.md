@@ -19,4 +19,6 @@ Carrito creado con el Framework Django 1.5
 	<hr>
 	<li>Cración de formulario en app ventas</li>
 	<li>Insertandos datos desde el formulario en mysql</li>
+	<hr>
+	<li>Implementación de herencia de plantillas</li>
 </ul>

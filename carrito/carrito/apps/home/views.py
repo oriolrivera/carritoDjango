@@ -18,7 +18,8 @@ def about_view(request):
 	return render_to_response('home/about.html',ctx,context_instance=RequestContext(request))
 
 def productos_view(request):
-	prod = producto.objects.filter(status=True)
+	#select * from ventas_productos where status = True ORDER BY id DESC
+	prod = producto.objects.filter(status=True).order_by('-id')
 	ctx = {'productos':prod}
 	return render_to_response('home/productos.html',ctx,context_instance=RequestContext(request))
 
