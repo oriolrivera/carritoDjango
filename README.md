@@ -14,5 +14,9 @@ Carrito creado con el Framework Django 1.5
 	<li>Formulario de contacto y CSRF</li>
 	<hr>
 	<li>Recuperando datos via POST</li>
+	<hr>
 	<li>Enviando correo desde el formulario de contacto</li>
+	<hr>
+	<li>Cración de formulario en app ventas</li>
+	<li>Insertandos datos desde el formulario en mysql</li>
 </ul>

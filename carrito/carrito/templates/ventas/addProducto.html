@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Crear productos</title>
+</head>
+	<body>
+			<form action="." method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+				<input type="submit" value="Grabar">
+				<input type="reset" value= "Limpiar">
+			</form>
+		<br>
+			{{ informacion }}
+
+	</body>
+</html>
