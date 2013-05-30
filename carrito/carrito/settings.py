@@ -108,6 +108,9 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'carrito.urls'
 
+#Identificar o definir el perfil de los usuarios
+AUTH_PROFILE_MODULE = 'home.userProfile'
+
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'carrito.wsgi.application'
 
@@ -128,6 +131,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
      'django.contrib.admin',
+     'carrito.apps.home',
      #registrando nueva apps ventas
      'carrito.apps.ventas',
     # Uncomment the next line to enable admin documentation:

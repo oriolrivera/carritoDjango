@@ -25,5 +25,7 @@ Carrito creado con el Framework Django 1.5
 	<li>Levantando servidor de medios</li>
 	<hr>
 	<li>Implementación de login para que solo los usuarios registrados puedan crear productos</li>
+	<hr>
+	<li>Creación de App home (userProfile) para agregar al perfil del user creado foto y telefono y mostrar en model en admin. Mostrando datos del user en el home cuando esta logueado.</li>
 
 </ul>
