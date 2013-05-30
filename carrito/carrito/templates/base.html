@@ -13,6 +13,11 @@
 				<li><a href="{% url "vista_productos" %}">Productos</a></li>
 				<li><a href="{% url "vista_about" %}">Nosotros</a></li>
 				<li><a href="{% url "vista_contacto" %}">Contacto</a></li>
+				{% if user.is_authenticated %}
+				<li><a href="{% url "vista_logout" %}">Logout</a></li>
+				{% else %}
+                <li><a href="{% url "vista_login" %}"> Login </a></li>
+				{% endif %}
 			</nav>
 		</header>
 		<section>

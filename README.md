@@ -23,5 +23,7 @@ Carrito creado con el Framework Django 1.5
 	<li>Implementación de herencia de plantillas</li>
 	<hr>
 	<li>Levantando servidor de medios</li>
+	<hr>
+	<li>Implementación de login para solo los user creados puedan crear productos</li>
 
 </ul>

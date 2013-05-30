@@ -6,7 +6,9 @@
 {% block content %}
 	<h1>Catalogos de productos</h1>
 
-	<a href="{% url "vista_agregar_producto" %}">Agregar productos</a>
+    {% if user.is_authenticated%}
+			<a href="{% url "vista_agregar_producto" %}">Agregar productos</a>
+	{% endif %}
 
 	{% if productos  %}
 	   {% for p in productos %}

@@ -4,9 +4,11 @@ from django.template import RequestContext
 #impostamos la libreria models y traemos la clase productos para crear nuestra vista dinamica desde la db
 from carrito.apps.ventas.models import producto
 #importar el formulario creado
-from carrito.apps.home.forms import ContactForm
+from carrito.apps.home.forms import ContactForm, LoginForm
 #libreria para enviar correo con estilo html
 from django.core.mail import EmailMultiAlternatives
+from django.contrib.auth import login,logout,authenticate
+from django.http import HttpResponseRedirect
 
 #creamos nuestra vistas
 def index_view(request):
@@ -47,3 +49,27 @@ def contacto_view(request):
 		formulario = ContactForm()
 	ctx = {'form':formulario, 'email':email,'titulo':titulo, 'texto':texto, 'info_enviado':info_enviado}
 	return render_to_response('home/contacto.html',ctx,context_instance=RequestContext(request))
+
+def login_view(request):
+	mensaje = ""
+	if request.user.is_authenticated():
+		     return HttpResponseRedirect('/')
+	else:
+     	     if request.method == "POST":
+     	     	form = LoginForm(request.POST)
+     	     	if form.is_valid():
+     	     		username = form.cleaned_data['username']
+     	     		password = form.cleaned_data['password']
+     	     		usuario = authenticate(username=username,password=password)
+     	     		if usuario is not None and usuario.is_active:
+     	     			login(request,usuario)
+     	     			return HttpResponseRedirect('/')
+     	     		else:
+     	     			mensaje = "Usuario y/o password icorrecto :("
+             form = LoginForm()
+             ctx = {'form':form, 'mensaje':mensaje}
+             return render_to_response('home/login.html', ctx, context_instance=RequestContext(request))
+
+def logout_view(request):
+	logout(request)
+	return HttpResponseRedirect('/')
