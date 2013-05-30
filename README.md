@@ -24,6 +24,6 @@ Carrito creado con el Framework Django 1.5
 	<hr>
 	<li>Levantando servidor de medios</li>
 	<hr>
-	<li>Implementación de login para solo los user creados puedan crear productos</li>
+	<li>Implementación de login para que solo los usuarios registrados puedan crear productos</li>
 
 </ul>
