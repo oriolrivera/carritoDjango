@@ -12,7 +12,7 @@
 
 	{% if productos  %}
 	   {% for p in productos %}
-	       <p> {{ p.nombre }} </p>
+	       <p><a href="/producto/{{p.id}}/"> {{ p.nombre }} </a></p>
 	       <small> {{ p.descripcion }} </small>
 	   {% endfor %}
 

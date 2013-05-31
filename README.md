@@ -27,5 +27,9 @@ Carrito creado con el Framework Django 1.5
 	<li>Implementación de login para que solo los usuarios registrados puedan crear productos</li>
 	<hr>
 	<li>Creación de App home (userProfile) para agregar al perfil del user creado foto y telefono y mostrar en model en admin. Mostrando datos del user en el home cuando esta logueado.</li>
+	<hr>
+	<li>Modificando modelos para insertar nuevos campos en la base de datos, sin necesidad de eliminar la db y volverla a crear.</li>
+	<li>Agregando los nuevos campos en el front-end para agregar productos.</li>
+	<li>Mostrando los datos en el front-end</li>
 
 </ul>

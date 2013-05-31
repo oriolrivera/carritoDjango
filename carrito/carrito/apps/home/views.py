@@ -25,6 +25,11 @@ def productos_view(request):
 	ctx = {'productos':prod}
 	return render_to_response('home/productos.html',ctx,context_instance=RequestContext(request))
 
+def singleProduct_view(request,id_prod):
+	prod = producto.objects.get(id=id_prod)
+	ctx = {'producto':prod}
+	return render_to_response('home/singleProducto.html',ctx,context_instance=RequestContext(request))
+
 def contacto_view(request):
 	info_enviado = False
 	email  = ""
