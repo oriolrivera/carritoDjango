@@ -10,7 +10,7 @@
             <img src="/media/images/logo.png" alt="">
 			<nav>
 				<li><a href="{% url "vista_principal" %}">Home</a></li>
-				<li><a href="{% url "vista_productos" %}">Productos</a></li>
+				<li><a href="/productos/page/1/">Productos</a></li>
 				<li><a href="{% url "vista_about" %}">Nosotros</a></li>
 				<li><a href="{% url "vista_contacto" %}">Contacto</a></li>
 				{% if user.is_authenticated %}

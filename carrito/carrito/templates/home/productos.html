@@ -12,12 +12,41 @@
 
 	{% if productos  %}
 	   {% for p in productos %}
-	       <p><a href="/producto/{{p.id}}/"> {{ p.nombre }} </a></p>
-	       <small> {{ p.descripcion }} </small>
+			<fieldset>
+		       <legend><a href="/producto/{{p.id}}/"> {{ p.nombre }} </a></legend>
+		       <small> {{ p.descripcion }} </small>
+       		</fieldset>
+
 	   {% endfor %}
 
 	{% else %}
 	    <h2>No existen productos :( </h2>
 	{% endif %}
+<br><br>
+{# *********paginacion*************** #}
+<fieldset>
+	<legend>Paginación</legend>
+    {% if productos %}
+     		<a href="/productos/page/1">&laquo;</a>
+     		{% if productos.has_previous %}
+     		 		<a href="/productos/page/{{productos.previous_page_number}}/">Prev</a>
+ 			{% else %}
+					<a href="javascript:void(0);">Prev</a>
+			{% endif %}
+
+			{% if productos.has_next %}
+     		 		<a href="/productos/page/{{productos.next_page_number}}/">next</a>
+ 			{% else %}
+					<a href="javascript:void(0);">Next</a>
+			{% endif %}
+			<a href="/productos/page/{{productos.paginator.num_pages}}">&raquo;</a>
+			<br><br>
+			<h4> Pagina  {{ productos.number }} de {{ productos.paginator.num_pages }} </h4>
+
+
+	{% endif %}
+</fieldset>
+
+{# *********paginacion*************** #}
 
 {% endblock %}

@@ -9,6 +9,8 @@ from carrito.apps.home.forms import ContactForm, LoginForm
 from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth import login,logout,authenticate
 from django.http import HttpResponseRedirect
+#libreria de paginacion django
+from django.core.paginator import Paginator,EmptyPage,InvalidPage
 
 #creamos nuestra vistas
 def index_view(request):
@@ -19,10 +21,19 @@ def about_view(request):
 	ctx = {'msg':mensaje}
 	return render_to_response('home/about.html',ctx,context_instance=RequestContext(request))
 
-def productos_view(request):
+def productos_view(request,pagina):
 	#select * from ventas_productos where status = True ORDER BY id DESC
-	prod = producto.objects.filter(status=True).order_by('-id')
-	ctx = {'productos':prod}
+	lista_prod = producto.objects.filter(status=True).order_by('-id')
+	paginator = Paginator(lista_prod,3)
+	try:
+		page = int(pagina)
+	except:
+		page = 1
+	try:
+		productos = paginator.page(page)
+	except (EmptyPage,InvalidPage):
+		productos = paginator.page(paginator.num_pages)
+	ctx = {'productos':productos}
 	return render_to_response('home/productos.html',ctx,context_instance=RequestContext(request))
 
 def singleProduct_view(request,id_prod):

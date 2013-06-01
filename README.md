@@ -31,5 +31,7 @@ Carrito creado con el Framework Django 1.5
 	<li>Modificando modelos para insertar nuevos campos en la base de datos, sin necesidad de eliminar la db y volverla a crear.</li>
 	<li>Agregando los nuevos campos en el front-end para agregar productos.</li>
 	<li>Mostrando los datos en el front-end</li>
+	<hr>
+	<li>Integración de paginator django</li>
 
 </ul>
