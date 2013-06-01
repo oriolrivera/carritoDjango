@@ -33,7 +33,7 @@ TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 SITE_ID = 1
 
@@ -134,6 +134,7 @@ INSTALLED_APPS = (
      'carrito.apps.home',
      #registrando nueva apps ventas
      'carrito.apps.ventas',
+     'carrito.apps.webServices.wsProductos',
     # Uncomment the next line to enable admin documentation:
      'django.contrib.admindocs',
 )

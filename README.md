@@ -33,5 +33,7 @@ Carrito creado con el Framework Django 1.5
 	<li>Mostrando los datos en el front-end</li>
 	<hr>
 	<li>Integración de paginator django</li>
+	<hr>
+	<li>Creción de app wsProductos para consumir Webservices JSON y XML</li>
 
 </ul>

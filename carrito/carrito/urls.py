@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     #mis urls apps
     url(r'^', include('carrito.apps.home.urls')),
     url(r'^', include('carrito.apps.ventas.urls')),
+    url(r'^', include('carrito.apps.webServices.wsProductos.urls')),
     # Uncomment the next line to enable the admin:
      url(r'^admin/', include(admin.site.urls)),
      #mi url de server de medias
