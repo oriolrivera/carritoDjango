@@ -7,6 +7,17 @@ from django.http import HttpResponseRedirect
 
 def add_product_view(request):
 	info = "Inicializando"
+	if request.method == "POST":
+		form = addProductForm()
+	else:
+		form = addProductForm()
+	ctx = {'form':form, 'informacion':info}
+	return render_to_response('ventas/addProducto.html',ctx,context_instance=RequestContext(request))
+
+
+"""
+def add_product_view(request):
+	info = "Inicializando"
 	if request.user.is_authenticated():#si se esta logeado se permite acceso a la vista
 			if request.method == "POST":
 					form = addProductForm(request.POST,request.FILES)
@@ -38,6 +49,8 @@ def add_product_view(request):
 		    	return render_to_response('ventas/addProducto.html',ctx,context_instance=RequestContext(request))
 	else:#sino se esta logeado no se permiter acceso a la vista para agregar porducto y se redireciona al home
 		return HttpResponseRedirect('/')
+
+"""
 
 def edit_product_view(request,id_prod):
 	info = ""
