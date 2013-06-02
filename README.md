@@ -36,6 +36,8 @@ Carrito creado con el Framework Django 1.5
 	<hr>
 	<li>Creción de app wsProductos para consumir Webservices JSON y XML</li>
 	<hr>
-	<li>Integracón de bootstrap y jquery</li>
+	<li>Integración de bootstrap y jquery</li>
+	<hr>
+	<li>Efecto fadeToggle en grilla vista (productos) donde solo el admin puede modificar datos</li>
 
 </ul>

@@ -18,7 +18,9 @@
 
 	{% if productos  %}
 	    {# **************ver grilla producto************ #}
-		 <a href="#" id="show-prod"><i class="icon-th-list pull-right"></i></a>
+	    {% if user.is_authenticated %}
+		 			<a href="javascript:void(0);" id="show-prod" title="Ver productos a modificar"><i class="icon-th-list pull-right"></i></a>
+		{%endif%}
 		{# **************ver grilla producto************ #}
 
 			<table class="table table-hover" id="list-prod">
@@ -37,7 +39,8 @@
 							<td>{{ p.precio }}</td>
 							<td>{{ p.stock }}</td>
 							<td><a class="btn" href="/producto/{{p.id}}/"><i class="icon-search"></i> Ver</a></td>
-							<td><a class="btn" href="#"><i class="icon-shopping-cart"></i> Comprar</a>
+							<td><a href="#" class="btn" title="Editar"><i class="icon-edit"></i>Editar </a></td>
+							<td><a class="btn" href="#"><i class="icon-remove-circle"></i>Eliminar</a>
 					    	</td>
 				    	</tr>
 			    	</tbody>
@@ -93,11 +96,13 @@
 {% block script %}
 	<script>
 		$(function(){
-	         // alert("ok");
+
 	         $("#show-prod").click(function(){
-	         		// alert("ok");
-	         		$("#list-prod").show();
+
+	            $("#list-prod").fadeToggle("slow", "linear",3000);
+
 	         });
+
 		});
 	</script>
 {% endblock %}
