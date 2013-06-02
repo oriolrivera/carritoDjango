@@ -45,5 +45,7 @@ Carrito creado con el Framework Django 1.5
 	<li>Visulizando datos en el form editPrducto</li>
 	<hr>
 	<li>Editando productos</li>
+	<hr>
+	<li>Relación ManyToMany, cración de models categoriaProducto y integración de esta en la vista simgleProducto</li>
 
 </ul>

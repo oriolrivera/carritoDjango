@@ -4,10 +4,13 @@
 {% block content %}
 <h1> {{ producto.nombre }} </h1>
 <br>
+<b>Categoria:</b>
+{% for cat in categorias%}
+	 <span class="label label-info">{{ cat.nombre }}</span>
+{% endfor %}
+<br><br>
 <center>
 	<img src="/media/{{ producto.imagen }}" width="350px" heigth="350px" class="img-polaroid">
-
-
 	<p> {{producto.descripcion}} </p>
 
 	<p> ${{ producto.precio }} </p>
