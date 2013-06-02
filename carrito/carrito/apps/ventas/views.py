@@ -4,6 +4,7 @@ from carrito.apps.ventas.forms import addProductForm
 from carrito.apps.ventas.models import producto
 from django.http import HttpResponseRedirect
 
+
 def add_product_view(request):
 	info = "Inicializando"
 	if request.user.is_authenticated():#si se esta logeado se permite acceso a la vista
@@ -37,3 +38,18 @@ def add_product_view(request):
 		    	return render_to_response('ventas/addProducto.html',ctx,context_instance=RequestContext(request))
 	else:#sino se esta logeado no se permiter acceso a la vista para agregar porducto y se redireciona al home
 		return HttpResponseRedirect('/')
+
+def edit_product_view(request,id_prod):
+	info = ""
+	p = producto.objects.get(pk=id_prod)
+	if request.method == "GET":
+		form = addProductForm(initial={
+			'nombre':p.nombre,
+			'descripcion':p.descripcion,
+			'precio':p.precio,
+			'stock':p.stock,
+
+			})
+	ctx = {'form':form,'info':info,'producto':p}
+	return render_to_response('ventas/editProducto.html',ctx,context_instance=RequestContext(request))
+

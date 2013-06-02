@@ -41,5 +41,7 @@ Carrito creado con el Framework Django 1.5
 	<li>Efecto fadeToggle en grilla vista (productos) donde solo el admin puede modificar datos</li>
 	<hr>
 	<li>Obteniendo Webservices JSON o XML con jquery ajax y mostrando en sidebar contenido.</li>
+	<hr>
+	<li>Visulizando datos en el form editPrducto</li>
 
 </ul>
