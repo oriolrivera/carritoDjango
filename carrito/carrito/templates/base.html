@@ -11,22 +11,44 @@
      <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <style type="text/css">
 		body {
-		        padding-top: 80px;
-		      }
-      	#list-prod{
-      		display: none;
-      	}
+		padding-top: 80px;
+		}
+		#list-prod{
+		display: none;
+		}
 
-      .sidebar-nav {
-        padding: 9px 0;
-      }
+		.sidebar-nav {
+		padding: 9px 0;
+		}
 
-	 .span3 img{width:160px;
+		.span3 img{width:160px;
 		height: 140px;
-	 }
-
-
+		}
     </style>
+
+    <script type="text/javascript">
+
+         $(function(){
+       			$.ajax({
+       				type:"GET",
+       				contentType:"application/json; charset=utf-8",
+       				dateType:"json",
+       				url:"/ws/productos/",
+       				success:function(response){
+       					var i = (response.length-1)-5;
+       					for (i;i<=(response.length-1);i++){
+       						$('#ProductosNuevos').append("<li>"+response[i].fields.nombre+"</li>",
+       							// "<li><img src='"+response[i].fields.imagen+"'></li>");
+       						"<li><img src='/media/"+response[i].fields.imagen+"'></li>");
+       					}
+       				}
+
+       			});//end ajax
+
+         });//end document ready
+
+    </script>
+
 </head>
 	<body>
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -72,11 +94,10 @@
 		            </ul>
 		          </div><!--/.well -->
 		          <div class="well sidebar-nav">
-		            <ul class="nav nav-list">
+		            <ul class="nav nav-list" id="ProductosNuevos">
 		              <li class="nav-header">Nuevos Productos</li>
 		              <br><p align="justify">
-		               Aquí habrán nuevos productos posterioremente
-		               cargados con jquery.
+
 		              </p>
 		            </ul>
 		         </div><!--/.well -->
