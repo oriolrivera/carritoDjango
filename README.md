@@ -49,5 +49,6 @@ Carrito creado con el Framework Django 1.5
 	<li>Relación ManyToMany, cración de models categoriaProducto y integración de esta en la vista simgleProducto</li>
 	<hr>
 	<li>Migrando a ModelForms para trabajar con relación ManyToMany</li>
+	<li>Guardados datos desde formulario agregar productos con ModelForms y ManyToMany</li>
 
 </ul>

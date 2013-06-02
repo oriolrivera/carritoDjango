@@ -8,7 +8,14 @@ from django.http import HttpResponseRedirect
 def add_product_view(request):
 	info = "Inicializando"
 	if request.method == "POST":
-		form = addProductForm()
+		form = addProductForm(request.POST,request.FILES)
+		if form.is_valid():
+			add = form.save(commit=False)
+			add.status = True
+			add.save() # Guardamos la informacion
+			form.save_m2m()# Guarda las relaciones de ManyToMany
+			info = "Datos creados con exito :)"
+			return HttpResponseRedirect('/producto/%s'%add.id)
 	else:
 		form = addProductForm()
 	ctx = {'form':form, 'informacion':info}
