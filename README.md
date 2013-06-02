@@ -35,5 +35,7 @@ Carrito creado con el Framework Django 1.5
 	<li>Integración de paginator django</li>
 	<hr>
 	<li>Creción de app wsProductos para consumir Webservices JSON y XML</li>
+	<hr>
+	<li>Integracón de bootstrap y jquery</li>
 
 </ul>

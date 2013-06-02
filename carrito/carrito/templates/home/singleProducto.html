@@ -4,17 +4,19 @@
 {% block content %}
 <h1> {{ producto.nombre }} </h1>
 <br>
-<img src="/media/{{ producto.imagen }}" alt="" width="150px" heigth="150px">
+<center>
+	<img src="/media/{{ producto.imagen }}" width="350px" heigth="350px" class="img-polaroid">
 
-<p> {{producto.descripcion}} </p>
 
-<p> ${{ producto.precio }} </p>
+	<p> {{producto.descripcion}} </p>
 
-{% if producto.stock > 0 %}
-     <a href="#"> Comprar producto</a>
-{% endif %}
+	<p> ${{ producto.precio }} </p>
 
-<br><br>
-<a href="javascript:window.history.go(-1);">Regresar a la lista</a>
+	{% if producto.stock > 0 %}
+	     <a href="#" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Comprar producto</a>
+	{% endif %}
 
+	<br><br>
+	<a href="javascript:window.history.go(-1);" class="btn btn-primary"><i class="icon-arrow-left icon-white"></i> Regresar a la lista</a>
+</center>
 {% endblock %}

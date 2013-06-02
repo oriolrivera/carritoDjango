@@ -3,9 +3,9 @@ from django import forms
 from django.contrib.auth.models import User
 
 class ContactForm(forms.Form):
-	Email  = forms.EmailField(widget=forms.TextInput())
-	Titulo = forms.CharField(widget=forms.TextInput())
-	Texto  = forms.CharField(widget=forms.Textarea())
+	Email  = forms.EmailField(widget=forms.TextInput(attrs={'class' : 'input-xlarge'}))
+	Titulo = forms.CharField(widget=forms.TextInput(attrs={'class' : 'input-xlarge'}))
+	Texto  = forms.CharField(widget=forms.Textarea(attrs={'class' : 'input-xxlarge'}))
 
 class LoginForm(forms.Form):
 	username = forms.CharField(widget=forms.TextInput())

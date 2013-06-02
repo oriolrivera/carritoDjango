@@ -24,7 +24,7 @@ def about_view(request):
 def productos_view(request,pagina):
 	#select * from ventas_productos where status = True ORDER BY id DESC
 	lista_prod = producto.objects.filter(status=True).order_by('-id')
-	paginator = Paginator(lista_prod,3)
+	paginator = Paginator(lista_prod,10)
 	try:
 		page = int(pagina)
 	except:

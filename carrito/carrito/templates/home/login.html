@@ -2,10 +2,16 @@
 {% block title %} Login {% endblock %}
 
 {% block content %}
-<form action="." method="post">
-	{% csrf_token %}
-	{{ mensaje }}
-	{{ form.as_p }}
-	<button type="submit"> Login </button>
-</form>
-{% endblock%}
+
+	<div class="span5 hero-unit" style="padding: 1em 3em; margin: 1em 25%;">
+		<h2>Login</h2>
+		<form action="." method="post">
+			{% csrf_token %}
+			{{ mensaje }}
+			{{ form.as_p }}
+			<button type="submit" class="btn btn-primary"> Login </button>
+		</form>
+	</div>
+
+
+{% endblock content%}

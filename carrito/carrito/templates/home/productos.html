@@ -3,50 +3,101 @@
 
 {% block title %} Catalogos de productos {% endblock %}
 
+
 {% block content %}
+
+
 	<h1>Catalogos de productos</h1>
 
     {% if user.is_authenticated%}
-			<a href="{% url "vista_agregar_producto" %}">Agregar productos</a>
+    	<div class="agregar-prod">
+			<a href="{% url "vista_agregar_producto" %}" class="btn btn-primary"><i class="icon-plus icon-white"></i> Agregar productos</a>
+		</div>
+		<br>
 	{% endif %}
 
 	{% if productos  %}
-	   {% for p in productos %}
-			<fieldset>
-		       <legend><a href="/producto/{{p.id}}/"> {{ p.nombre }} </a></legend>
-		       <small> {{ p.descripcion }} </small>
-       		</fieldset>
+	    {# **************ver grilla producto************ #}
+		 <a href="#" id="show-prod"><i class="icon-th-list pull-right"></i></a>
+		{# **************ver grilla producto************ #}
 
-	   {% endfor %}
+			<table class="table table-hover" id="list-prod">
+					<thead>
+						 <tr>
+		                  <th>Producto</th>
+		                  <th>Precio</th>
+		                  <th>Stock</th>
+	                	</tr>
+					</thead>
+					<tbody>
+				{% for p in productos %}
+					<tbody>
+ 						<tr>
+							<td>{{ p.nombre }}</td>
+							<td>{{ p.precio }}</td>
+							<td>{{ p.stock }}</td>
+							<td><a class="btn" href="/producto/{{p.id}}/"><i class="icon-search"></i> Ver</a></td>
+							<td><a class="btn" href="#"><i class="icon-shopping-cart"></i> Comprar</a>
+					    	</td>
+				    	</tr>
+			    	</tbody>
+
+            	{% endfor %}
+				</tbody>
+			</table>
+	   {% for p in productos %}
+
+	        <div class="span3" style="margin-bottom:10px;padding:0;margin:0">
+	       	 <div><img src="/media/{{ p.imagen }}" class="img-polaroid"></div>
+	       		<a href="/producto/{{p.id}}/"> {{ p.nombre }} </a>
+
+       			<p><small> {{ p.descripcion }} </small></p>
+	        </div>
+
+
+   		{% endfor %}
 
 	{% else %}
 	    <h2>No existen productos :( </h2>
 	{% endif %}
-<br><br>
+
+{% endblock %}
 {# *********paginacion*************** #}
-<fieldset>
-	<legend>Paginación</legend>
+{%	block paginacion %}
+
+<div class="pagination">
     {% if productos %}
-     		<a href="/productos/page/1">&laquo;</a>
+    	<ul>
+     		<li><a href="/productos/page/1">&laquo;</a></li>
      		{% if productos.has_previous %}
-     		 		<a href="/productos/page/{{productos.previous_page_number}}/">Prev</a>
+     		 		<li><a href="/productos/page/{{productos.previous_page_number}}/">Prev</a></li>
  			{% else %}
-					<a href="javascript:void(0);">Prev</a>
+					<li><a href="javascript:void(0);">Prev</a></li>
 			{% endif %}
 
 			{% if productos.has_next %}
-     		 		<a href="/productos/page/{{productos.next_page_number}}/">next</a>
+     		 		<li><a href="/productos/page/{{productos.next_page_number}}/">next</a></li>
  			{% else %}
-					<a href="javascript:void(0);">Next</a>
+					<li><a href="javascript:void(0);">Next</a></li>
 			{% endif %}
-			<a href="/productos/page/{{productos.paginator.num_pages}}">&raquo;</a>
+					<li><a href="/productos/page/{{productos.paginator.num_pages}}">&raquo;</a></li>
 			<br><br>
 			<h4> Pagina  {{ productos.number }} de {{ productos.paginator.num_pages }} </h4>
-
-
+		</ul>
 	{% endif %}
-</fieldset>
-
+</div>
 {# *********paginacion*************** #}
 
+{%endblock%}
+
+{% block script %}
+	<script>
+		$(function(){
+	         // alert("ok");
+	         $("#show-prod").click(function(){
+	         		// alert("ok");
+	         		$("#list-prod").show();
+	         });
+		});
+	</script>
 {% endblock %}

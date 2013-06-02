@@ -3,27 +3,96 @@
 <head>
 	<meta charset="UTF-8">
 	<title> {% block title %} Titulo base {% endblock %} </title>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	<link href="/media/bootstrap/css/bootstrap.css" rel="stylesheet">
+     <link href="/media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <script src="/media/bootstrap/js/bootstrap.js"></script>
+    <style type="text/css">
+
+      	#list-prod{
+      		display: none;
+      	}
+
+
+      body {
+        padding-top: 80px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+	 .span3 img{width:160px;
+		height: 140px;
+	 }
+
+
+    </style>
 </head>
 	<body>
-		<header>
-			<h1>Projecto carrito de compras</h1>
-            <img src="/media/images/logo.png" alt="">
-			<nav>
-				<li><a href="{% url "vista_principal" %}">Home</a></li>
-				<li><a href="/productos/page/1/">Productos</a></li>
-				<li><a href="{% url "vista_about" %}">Nosotros</a></li>
-				<li><a href="{% url "vista_contacto" %}">Contacto</a></li>
-				{% if user.is_authenticated %}
-				<li><a href="{% url "vista_logout" %}">Logout</a></li>
-				{% else %}
-                <li><a href="{% url "vista_login" %}"> Login </a></li>
-				{% endif %}
-			</nav>
-		</header>
-		<section>
-			{% block content %}
-			{% endblock %}
-		</section>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+        	<div class="navbar-inner">
+        		<div class="container-fluid">
+        			<a href="" class="brand"><img src="/media/images/logo.png" alt=""></a>
+        			{% if user.is_authenticated %}
+		            <p class="navbar-text pull-right">
+		              <i class="icon-user icon-white"></i>  {{ user.username }}
+		            </p>
+		            {% endif %}
+					<nav>
+						<ul class="nav">
+							<li><a href="{% url "vista_principal" %}"><i class="icon-home icon-white"></i> Home</a></li>
+							<li><a href="/productos/page/1/"><i class="icon-th icon-white"></i> Productos</a></li>
+							<li><a href="{% url "vista_about" %}"><i class="icon-briefcase icon-white"></i> Nosotros</a></li>
+							<li><a href="{% url "vista_contacto" %}"><i class="icon-envelope icon-white"></i> Contacto</a></li>
+							{% if user.is_authenticated %}
+							<li><a href="{% url "vista_logout" %}"><i class="icon-off icon-white"></i> Logout</a></li>
+							{% else %}
+			                <li><a href="{% url "vista_login" %}"><i class="icon-off icon-white"></i> Login </a></li>
+		                </ul>
+						  {% endif %}
+					</nav>
+
+        		</div>
+        	</div>
+        </div>
+
+		<div class="container-fluid">
+	      	<div class="row-fluid">
+	        	<div class="span9">
+	            		{% block content %}
+	            		{% endblock content%}
+	        	</div><!--/span-->
+	        	<div class="span3">
+		         <div class="well sidebar-nav">
+		            <ul class="nav nav-list">
+		              <li class="nav-header">Mi Carrito</li>
+		              <br><p align="justify">
+		               Carrito de Super
+		              </p>
+		            </ul>
+		          </div><!--/.well -->
+		          <div class="well sidebar-nav">
+		            <ul class="nav nav-list">
+		              <li class="nav-header">Nuevos Productos</li>
+		              <br><p align="justify">
+		               Aquí habrán nuevos productos posterioremente
+		               cargados con jquery.
+		              </p>
+		            </ul>
+		         </div><!--/.well -->
+      		</div>{# end row #}
+      	</div>{# end row #}
+      	{%	block paginacion %}
+		{%endblock%}
+      	{%	block footer %}
+	      	 <footer>
+	      		<p>&copy; Open Project 2013 </p>
+	  		 </footer>
+		{%endblock%}
+
+		{% block script %}
+		{% endblock %}
 
 	</body>
 </html>
