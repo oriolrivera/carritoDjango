@@ -43,5 +43,7 @@ Carrito creado con el Framework Django 1.5
 	<li>Obteniendo Webservices JSON o XML con jquery ajax y mostrando en sidebar contenido.</li>
 	<hr>
 	<li>Visulizando datos en el form editPrducto</li>
+	<hr>
+	<li>Editando productos</li>
 
 </ul>
