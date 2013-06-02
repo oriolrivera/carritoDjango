@@ -50,5 +50,6 @@ Carrito creado con el Framework Django 1.5
 	<hr>
 	<li>Migrando a ModelForms para trabajar con relación ManyToMany</li>
 	<li>Guardados datos desde formulario agregar productos con ModelForms y ManyToMany</li>
+	<li>Editando datos desde formulario edit productos con ModelForms y ManyToMany</li>
 
 </ul>

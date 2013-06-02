@@ -60,6 +60,26 @@ def add_product_view(request):
 """
 
 def edit_product_view(request,id_prod):
+	info = "Iniciando"
+	prod = producto.objects.get(pk=id_prod)
+	if request.method == "POST":
+		form = addProductForm(request.POST,request.FILES,instance=prod)
+		if form.is_valid():
+			edit_prod = form.save(commit=False)
+			form.save_m2m()
+			edit_prod.status = True
+			edit_prod.save() # Guardamos el objeto
+			info = "Datos editados con exito :)"
+			return HttpResponseRedirect('/producto/%s/'%edit_prod.id)
+	else:
+		form = addProductForm(instance=prod)
+	ctx = {'form':form,'informacion':info}
+	return render_to_response('ventas/editProducto.html',ctx,context_instance=RequestContext(request))
+
+
+
+"""
+def edit_product_view(request,id_prod):
 	info = ""
 	p = producto.objects.get(pk=id_prod)
 	if request.method == "POST":
@@ -89,4 +109,4 @@ def edit_product_view(request,id_prod):
 			})
 	ctx = {'form':form,'info':info,'producto':p}
 	return render_to_response('ventas/editProducto.html',ctx,context_instance=RequestContext(request))
-
+"""
