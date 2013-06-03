@@ -18,7 +18,7 @@
 
 	{% if productos  %}
 	    {# **************ver grilla producto************ #}
-	    {% if user.is_authenticated %}
+	    {% if user.is_authenticated and user.is_staff %}
 		 			<a href="javascript:void(0);" id="show-prod" title="Ver productos a modificar"><i class="icon-th-list pull-right"></i></a>
 		{%endif%}
 		{# **************ver grilla producto************ #}
