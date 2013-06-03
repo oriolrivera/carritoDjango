@@ -4,9 +4,10 @@ from django.template import RequestContext
 #impostamos la libreria models y traemos la clase productos para crear nuestra vista dinamica desde la db
 from carrito.apps.ventas.models import producto
 #importar el formulario creado
-from carrito.apps.home.forms import ContactForm, LoginForm
+from carrito.apps.home.forms import ContactForm, LoginForm, RegisterForm
 #libreria para enviar correo con estilo html
 from django.core.mail import EmailMultiAlternatives
+from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from django.http import HttpResponseRedirect
 #libreria de paginacion django
@@ -90,3 +91,8 @@ def login_view(request):
 def logout_view(request):
 	logout(request)
 	return HttpResponseRedirect('/')
+
+def register_view(request):
+	form = RegisterForm()
+	ctx = {'form':form}
+	return render_to_response('home/register.html',ctx,context_instance=RequestContext(request))

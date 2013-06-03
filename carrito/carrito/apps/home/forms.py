@@ -10,3 +10,11 @@ class ContactForm(forms.Form):
 class LoginForm(forms.Form):
 	username = forms.CharField(widget=forms.TextInput())
 	password = forms.CharField(widget=forms.PasswordInput(render_value=False))
+
+class RegisterForm(forms.Form):
+	username = forms.CharField(label="Nombre de usuario", widget=forms.TextInput())
+	email    = forms.EmailField(label="Email", widget=forms.TextInput())
+	password_one = forms.CharField(label="Password", widget=forms.PasswordInput(render_value=False))
+	password_two = forms.CharField(label="Confirmar password", widget=forms.PasswordInput(render_value=False))
+
+
