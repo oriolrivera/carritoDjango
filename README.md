@@ -53,5 +53,6 @@ Carrito creado con el Framework Django 1.5
 	<li>Editando datos desde formulario edit productos con ModelForms y ManyToMany</li>
 	<hr>
 	<li>Creación de formulario de registro de usuario en la parte el front-end</li>
+	<li>Dando ingresando datos de fomulario de registro</li>
 
 </ul>

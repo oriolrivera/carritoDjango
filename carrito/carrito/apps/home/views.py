@@ -94,5 +94,18 @@ def logout_view(request):
 
 def register_view(request):
 	form = RegisterForm()
+	if request.method == "POST":
+		form = RegisterForm(request.POST)
+		if form.is_valid():
+			usuario = form.cleaned_data['username']
+			email = form.cleaned_data['email']
+			password_one = form.cleaned_data['password_one']
+			password_two = form.cleaned_data['password_two']
+			u = User.objects.create_user(username=usuario,email=email,password=password_one)
+			u.save()
+			return render_to_response('home/register_ok.html',context_instance=RequestContext(request))
+      	else:
+      		ctx = {'form':form}
+      		return render_to_response('home/register.html',ctx,context_instance=RequestContext(request))
 	ctx = {'form':form}
 	return render_to_response('home/register.html',ctx,context_instance=RequestContext(request))
